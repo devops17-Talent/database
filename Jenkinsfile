@@ -9,19 +9,19 @@ pipeline{
     stage('create db namespace'){
       steps{
     sh '''
-        myNamespace="devops-database"
+        myNamespace="database"
        kubectl get namespace | grep -q "^$myNamespace " || kubectl create namespace $myNamespace
          '''
     }
     }
   stage('deploy mariadb'){
     steps{
-    sh 'helm upgrade --install mariadb $WORKSPACE --values $WORKSPACE/createat-mariadb.yaml --namespace devops-database '
+    sh 'helm upgrade --install mariadb $WORKSPACE --values $WORKSPACE/createat-mariadb.yaml --namespace database '
     }
   }
  stage('pod status'){
    steps{
-   sh 'kubectl get pods -n devops-database'
+   sh 'kubectl get pods -n database'
    }
  }
     
