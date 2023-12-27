@@ -18,8 +18,8 @@
 ##
 image:
   registry: docker.io
-  repository: bitnami/mariadb
-  tag: 10.3.22-debian-10-r27
+  repository: malleshdevops/devopseks17
+  tag: mariadb
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -29,8 +29,8 @@ image:
   ## Secrets must be manually created in the namespace.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   ##
-  # pullSecrets:
-  #   - myRegistryKeySecretName
+   pullSecrets:
+     - dockerhub-cred
 
   ## Set to true if you would like to see extra information on logs
   ## It turns BASH and NAMI debugging in minideb
